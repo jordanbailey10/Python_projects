@@ -57,7 +57,7 @@ def first_run(self):
         cur,count = count_records(cur)
         if count < 1:
             cur.execute("""INSERT INTO tbl_studentTracking (col_fname,col_lname,col_fullname,col_phone,col_email,col_currentcourse) VALUES (?,?,?,?,?,?)""", ('John','Doe','John Doe','111-111-1111','jdoe@email.com','Geometry'))
-          conn.commit()
+        conn.commit()
     conn.close()
 
 
@@ -227,7 +227,7 @@ def onUpdate(self):
                         cursor = conn.cursor()
                         cursor.execute("""UPDATE tbl_studentTracking SET col_phone = '{0}',col_email = '{1}' WHERE col_fullname = '{2}'""".format(var_phone,var_email,var_value))
                         onClear(self)
-                conn.commit()
+                    conn.commit()
                 else:
                     messagebox.showinfo("Cancel request","No changes have been made to ({}).".format(var_value))
             else:

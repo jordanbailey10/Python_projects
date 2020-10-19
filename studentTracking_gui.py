@@ -21,7 +21,7 @@ def load_gui(self):
     self.lbl_currentcourse = tk.Label(self.master,text='Current Course:')
     self.lbl_currentcourse.grid(row=8,column=0,padx=(27,0),pady=(10,0),sticky=N+W)
     self.lbl_user = tk.Label(self.master,text='User:')
-    self.lbl_user.grid(row=0,column=2,padx=(0,0),pady=(10,0)sticky=N+W)
+    self.lbl_user.grid(row=0,column=2,padx=(0,0),pady=(10,0),sticky=N+W)
 
     self.txt_fname = tk.Entry(self.master,text='')
     self.txt_fname.grid(row=1,column=0,rowspan=1,columnspan=2,padx=(30,40),pady=(0,0),sticky=N+E+W)
@@ -51,8 +51,8 @@ def load_gui(self):
     self.btn_close = tk.Button(self.master,width=12,height=2,text='Close',command=lambda: phonebook_func.ask_quit(self))
     self.button_close.grid(row=8,column=2,padx=(15,0),pady=(45,10),sticky=W)
 
-    phonebook_func.create_db(self)
-    phonebook_func.onRefresh(self)
+    studentTracing_func.create_db(self)
+    studentTracking_func.onRefresh(self)
 
 
 
