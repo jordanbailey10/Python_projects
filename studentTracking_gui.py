@@ -32,13 +32,13 @@ def load_gui(self):
     self.txt_email = tk.Entry(self.master,text='')
     self.txt_email.grid(row=7,column=0,rowspan=1,columnspan=2,padx=(30,40),pady=(0,0),sticky=N+E+W)
     self.txt_currentcourse = tk.Entry(self.master,text='')
-    self.txt_currentcoursel.grid(row=9,column=0,rowspan=1,columnspan=2,padx=(30,40),pady=(0,0),sticky=N+E+W)
+    self.txt_currentcourse.grid(row=9,column=0,rowspan=1,columnspan=2,padx=(30,40),pady=(0,0),sticky=N+E+W)
 
     #Define the listbox with a scrollbar and grid them
     self.scrollbar1 = Scrollbar(self.master,orient=VERTICAL)
     self.lstList1 = Listbox(self.master,exportselection=0,yscrollcommand=self.scrollbar1.set)
-    slef.lstList1.bind('<<ListboxSelect>>',lambda event: phonebook_func.onSelect(self,event))
-    selfscrollbar1.config(command=self.lstList1.yview)
+    self.lstList1.bind('<<ListboxSelect>>',lambda event: studentTracking_func.onSelect(self,event))
+    self.scrollbar1.config(command=self.lstList1.yview)
     self.scrollbar1.grid(row=1,column=5,rowspan=7,columnspan=3,padx=(0,0),pady=(0,0),sticky=N+E+S)
     self.lstList1.grid(row=1,column=2,rowspan=7,columnspan=3,padx=(0,0),sticky=N+E+S+W)
 
