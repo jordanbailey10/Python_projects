@@ -9,7 +9,7 @@ import studentTracking_gui
 
 # tkinter frame class that class will inherit from
 class ParentWindow(Frame):
-    def __init(self, master, *args, **kwargs):
+    def __init__(self, master, *args, **kwargs):
         Frame.__init__(self, master, *args, **kwargs)
 
         #define master frame config
@@ -26,7 +26,7 @@ class ParentWindow(Frame):
         arg = self.master
 
 
-        drill50_phonebook_gui.load_gui(self)
+        studentTracking_gui.load_gui(self)
 
         #dropdown menue
         menubar = Menu(self.master)
