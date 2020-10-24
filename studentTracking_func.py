@@ -42,7 +42,7 @@ def create_db(self):
             col_fullname TEXT, \
             col_phone TEXT, \
             col_email TEXT, \
-            col_currentcourse TEXT, \
+            col_currentcourse TEXT \
             );")
         # You must commit() to save changes & close the database connection
         conn.commit()
@@ -207,7 +207,7 @@ def onUpdate(self):
     var_phone = self.txt_phone.get().strip() # normalize the data to maintain database integrity
     var_email = self.txt_email.get().strip()
     if (len(var_phone) > 0) and (len(var_email) > 0): # ensure that there is data present
-        conn = sqlite3.connect('db_phonebook.db')
+        conn = sqlite3.connect('db_studentTracking.db')
         with conn:
             cur = conn.cursor()
             # count records to see if the user's changes are already in

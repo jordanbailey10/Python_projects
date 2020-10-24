@@ -22,7 +22,7 @@ class ParentWindow(Frame):
         self.master.configure(bg="#F0F0F0")
         # This protocol method is a tkinter built-in method to catch if 
         # the user clicks the upper corner, "X" on Windows OS.
-        self.master.protocol("WM_DELETE_WINDOW", lambda: drill50_phonebook_func.ask_quit(self))
+        self.master.protocol("WM_DELETE_WINDOW", lambda: studentTracking_func.ask_quit(self))
         arg = self.master
 
 
@@ -33,7 +33,7 @@ class ParentWindow(Frame):
         filemenu.add_separator()
         filemenu = Menu(menubar, tearoff=0)
         filemenu.add_separator()
-        filemenu.add_command(label="Exit", underline=1,accelerator="Ctrl+Q",command=lambda: drill50_phonebook_func.ask_quit(self))
+        filemenu.add_command(label="Exit", underline=1,accelerator="Ctrl+Q",command=lambda: studentTracking_func.ask_quit(self))
         menubar.add_cascade(label="File", underline=0, menu=filemenu)
         helpmenu = Menu(menubar, tearoff=0) 
         helpmenu.add_separator()
