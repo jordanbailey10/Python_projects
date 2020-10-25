@@ -113,12 +113,12 @@ def addToList(self):
         with conn:
             cursor = conn.cursor()
             # Check the database for existance of the fullname, if so we will alert user and disregard request
-            cursor.execute("""SELECT COUNT(col_fullname) FROM tbl_phonebook WHERE col_fullname = '{}'""".format(var_fullname))#,(var_fullname))
+            cursor.execute("""SELECT COUNT(col_fullname) FROM tbl_studentTracking WHERE col_fullname = '{}'""".format(var_fullname))#,(var_fullname))
             count = cursor.fetchone()[0]
             chkName = count
             if chkName == 0: # if this is 0 then there is no existance of the fullname and we can add new data
                 print("chkName: {}".format(chkName))
-                cursor.execute("""INSERT INTO tbl_phonebook (col_fname,col_lname,col_fullname,col_phone,col_email,col_currentcourse) VALUES (?,?,?,?,?,?)""",(var_fname,var_lname,var_fullname,var_phone,var_email,var_currentcourse))
+                cursor.execute("""INSERT INTO tbl_studentTracking (col_fname,col_lname,col_fullname,col_phone,col_email,col_currentcourse) VALUES (?,?,?,?,?,?)""",(var_fname,var_lname,var_fullname,var_phone,var_email,var_currentcourse))
                 self.lstList1.insert(END, var_fullname) # update listbox with the new fullname
                 onClear(self) # call the function to clear all of the textboxes
             else:
@@ -145,7 +145,7 @@ def onDelete(self):
                 conn = sqlite3.connect('db_studentTracking.db')
                 with conn:
                     cursor = conn.cursor()
-                    cursor.execute("""DELETE FROM tbl_phonebook WHERE col_fullname = '{}'""".format(var_select))
+                    cursor.execute("""DELETE FROM tbl_studentTracking WHERE col_fullname = '{}'""".format(var_select))
                 onDeleted(self) # call the function to clear all of the textboxes and the selected index of listbox
 ######             onRefresh(self) # update the listbox of the changes
                 conn.commit()

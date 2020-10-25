@@ -1,10 +1,10 @@
-
-import webPageGenerator_gui
 import webbrowser
+import webPageGenerator_gui
 
 #Opening summer_sale,html, append content
 f = open("summer_sale.html", "a")
-f.write("<html>\n<body>\n<h1>Stay tuned for our amazing summer sale!</h1>\n</html>")
+f.write("Here is the html code!")
 f.close()
 
-webbrowser.open_new_tab("summer_sale.html")
+webbrowser.open('file:///C:/Python_projects/Python_projects/summer_sale.html', new=2)
+

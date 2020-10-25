@@ -29,8 +29,7 @@ class ParentWindow(Frame):
         studentTracking_gui.load_gui(self)
 
         #dropdown menue
-        menubar = Menu(self.master)
-        filemenu.add_separator()
+        menubar = Menu(self.master) 
         filemenu = Menu(menubar, tearoff=0)
         filemenu.add_separator()
         filemenu.add_command(label="Exit", underline=1,accelerator="Ctrl+Q",command=lambda: studentTracking_func.ask_quit(self))
