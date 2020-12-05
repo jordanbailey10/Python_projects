@@ -7,14 +7,8 @@ from tkinter import messagebox
 # importing modules 
 import webPageGenerator_gui
 import webPageGenerator_func
-import webbrowser
 
-#Opening summer_sale,html, append content
-f = open("summer_sale.html", "a")
-f.write("Here is the html code!")
-f.close()
 
-webbrowser.open('file:///C:/Python_projects/Python_projects/summer_sale.html', new=2)
 
 
 # tkinter frame class that class will inherit from
@@ -32,7 +26,7 @@ class ParentWindow(Frame):
         self.master.configure(bg="#F0F0F0")
         # This protocol method is a tkinter built-in method to catch if 
         # the user clicks the upper corner, "X" on Windows OS.
-        self.master.protocol("WM_DELETE_WINDOW", lambda: studentTracking_func.ask_quit(self))
+        self.master.protocol("WM_DELETE_WINDOW", lambda: webPageGenerator_func.ask_quit(self))
         arg = self.master
 
 
@@ -43,7 +37,14 @@ class ParentWindow(Frame):
         filemenu = Menu(menubar, tearoff=0)
         filemenu.add_separator()
         filemenu.add_command(label="Exit", underline=1,accelerator="Ctrl+Q",command=lambda: studentTracking_func.ask_quit(self))
- 
+
+def generator_func(self):
+    userInput = self.txt_entry.get();
+    #Opening summer_sale,html, append content
+    f = open("summer_sale.html", "a")
+    f.write("Here is the html code ad user input"+userInput)
+    f.close()
+    webbrowser.open('summer_sale.html', new=2)
 
 
 

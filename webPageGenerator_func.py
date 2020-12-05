@@ -1,9 +1,12 @@
 import os
 from tkinter import *
+from tkinter import messagebox
 import sqlite3
 
 import webPageGenerator
 import webPageGenerator_gui
+import webbrowser
+
 
 def center_window(self, w, h): # pass in the tkinter frame (master) reference and the w and h
     # get user's screen width and height
@@ -15,7 +18,17 @@ def center_window(self, w, h): # pass in the tkinter frame (master) reference an
     centerGeo = self.master.geometry('{}x{}+{}+{}'.format(w, h, x, y))
     return centerGeo
 
+def AddText(self):
+    #grabs the text from the Entry widget and sabes it to a variable named "AddText"
+    textToAdd = self.text_entry.get()
+    #Opening summer_sale,html, append content
+    f = open("summer_sale.html","a")
+    f.write(textToAdd)
+    f.close()
+    #opens the "summer sale.html" file in browser
+    webbrowser.open('summer_sale.html')
 
+    
 # catch if the user's clicks on the windows upper-right 'X' to ensure they want to close
 def ask_quit(self):
     if messagebox.askokcancel("Exit program", "Okay to exit application?"):
@@ -24,15 +37,3 @@ def ask_quit(self):
         os._exit(0)
 
 
-#=========================================================
-def create_db(self):
-    conn = sqlite3.connect('db_webPageGenerator.db')
-    with conn:
-        cur = conn.cursor()
-        cur.execute("CREATE TABLE if not exists tbl_webPageGenerator( \
-            ID INTEGER PRIMARY KEY AUTOINCREMENT, \
-            col_text TEXT \
-            );")
-        conn.commit()
-    conn.close()
-    first_run(self)
