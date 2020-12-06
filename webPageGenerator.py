@@ -12,39 +12,32 @@ import webPageGenerator_func
 
 
 # tkinter frame class that class will inherit from
+
 class ParentWindow(Frame):
-    def __init__(self, master, *args, **kwargs):
-        Frame.__init__(self, master, *args, **kwargs)
+    def __init__(self, master):
+        Frame.__init__(self, master)
 
-        #define master frame config
-        self.master = master
-        self.master.minsize(500,300) #(Height, Width)
-        self.master.maxsize(500,300)
-        # This CenterWindow method will center our app on the user's screen
-        webPageGenerator_func.center_window(self,500,300)
-        self.master.title("Web Page Generator")
-        self.master.configure(bg="#F0F0F0")
-        # This protocol method is a tkinter built-in method to catch if 
-        # the user clicks the upper corner, "X" on Windows OS.
-        self.master.protocol("WM_DELETE_WINDOW", lambda: webPageGenerator_func.ask_quit(self))
-        arg = self.master
+        self.master.title("Customize Webpage")
 
+        self.labelTxt = Label(text = "Customize your webpage by entering text, then click to view!", font=("Arial", 12))   ##both of these are required for any widget that is created, one to define it,
+        self.labelTxt.grid(row=0,column=0, padx=20, pady=(20,0))  ## and one to tell Tkinter where it should be placed.  
 
-        webPageGenerator_gui.load_gui(self)
+        self.txtEntry = Entry(self.master, font=("Helvetica", 12))
+        self.txtEntry.grid(row=1, column=0, padx=(30,15), pady=(10,10), columnspan=2, sticky=W+E)
 
-        #dropdown menue
-        menubar = Menu(self.master) 
-        filemenu = Menu(menubar, tearoff=0)
-        filemenu.add_separator()
-        filemenu.add_command(label="Exit", underline=1,accelerator="Ctrl+Q",command=lambda: studentTracking_func.ask_quit(self))
+        self.btnSubmit = Button(self.master, text="Submit", width=12, height=1, command=self.customEntry)   ##this way or using the lambdas are how to call a function with a Tkinter button. Which one you use mostly depends on how the object is being used.  Since this is all on one page you don't need to rely on the lambda method.
+        self.btnSubmit.grid(row=2, column=1, padx=(0,10) , pady=(0,10))
 
-def generator_func(self):
-    userInput = self.txt_entry.get();
-    #Opening summer_sale,html, append content
-    f = open("summer_sale.html", "a")
-    f.write("Here is the html code ad user input"+userInput)
-    f.close()
-    webbrowser.open('summer_sale.html', new=2)
+        self.master.columnconfigure(1,weight=1)
+
+    def customEntry(self):
+        customText = self.txtEntry.get()      ##   .get() targets the txtEntry in your frame and gets whatever has been put into it. There is also a .set() that is related.  The self is it acting as the current 'object' that all of these widgets are connected to. Effectively the gui itself.  That is then saved to your variable.
+        htmlFile = open("user_customized.html", "w")
+        htmlFormat = "<html>\n<body>\n<p>" + customText + "</p>\n</body>\n</html>"
+        htmlFile.write(htmlFormat)
+        htmlFile.close()
+        webbrowser.open_new_tab("user_customized.html")
+
 
 
 
