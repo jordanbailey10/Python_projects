@@ -6,7 +6,8 @@ from tkinter import messagebox
 
 
 # importing modules 
-import FileTransfer_func
+import FileTransfer_main
+import FileTransfer_gui
 
 # tkinter frame class that class will inherit from
 class ParentWindow(Frame):
