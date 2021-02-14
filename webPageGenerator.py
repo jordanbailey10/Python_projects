@@ -4,7 +4,8 @@ import tkinter as tk
 from tkinter import messagebox
 
 
-# importing modules 
+# importing modules
+import webbrowser
 import webPageGenerator_gui
 import webPageGenerator_func
 
