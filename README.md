@@ -1,6 +1,6 @@
 # Python_projects
 # Basic Python Projects
--
+
 
 I have made some basic python projects that use various models. 
 
@@ -19,9 +19,5 @@ I made these projects using Django, Python and Pycharm.
 -Django University
 -Django Checkbook
 
-## Help
 
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
 ```
